@@ -2,36 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>set time</title>
   </head>
   <body>
-    <label for="countries">Which country would you love to travel to?</label>
-    <select id="countries">
-      <option value="">Select a country</option>
-      <option value="france">France</option>
-      <option value="italy">Italy</option>
-      <option value="usa">USA</option>
-      <option value="brazil">Brazil</option>
-      <option value="japan">Japan</option>
-    </select>
+    <div id="helloBox">
+      <h1>Hello</h1>
+    </div>
+    <div id="date">
+      <h2></h2>
+    </div>
     <script>
-      function showCountry(event) {
-        if (event.target.value.length > 0) {
-          if (event.target.value === "france") {
-            alert("Bonjour!");
-          }
-          if (event.target.value === "italy") {
-            alert("Ciao!");
-          }
-          if (event.target.value === "usa") {
-            alert("Hi!");
-          }
-        }
+      function changeHello() {
+        let changeHello = document.querySelector("#helloBox");
+        changeHello.innerHTML = `
+          <div>
+            <h1>Bonjour</h1>
+          </div>`;
       }
 
-      let countriesSelected = document.querySelector("#countries");
-      console.log(countriesSelected);
-      countriesSelected.addEventListener("change", showCountry);
+      function displayDate() {
+        let date = document.querySelector("#date");
+        date.innerHTML = new Date();
+      }
+
+      setTimeout(changeHello, 3000);
+      displayDate();
+      setInterval(displayDate, 1000);
     </script>
   </body>
 </html>
