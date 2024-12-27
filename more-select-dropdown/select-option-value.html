@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test</title>
+    <style>
+      select {
+        display: block;
+        background-color: burlywood;
+        padding: 5px 10px;
+        min-width: 200px;
+        margin: 15px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="countries">Which country would you love to travel to?</label>
+    <select id="countries">
+      <option value="">Select a country</option>
+      <option value="france">France</option>
+      <option value="italy">Italy</option>
+      <option value="usa">USA</option>
+      <option value="brazil">Brazil</option>
+      <option value="japan">Japan</option>
+    </select>
+    <script>
+      function showCountry(event) {
+        if (event.target.value.length > 0) {
+          if (event.target.value === "france") {
+            alert("Bonjour!");
+          }
+          if (event.target.value === "italy") {
+            alert("Ciao!");
+          }
+          if (event.target.value === "usa") {
+            alert("Hi!");
+          }
+        }
+      }
+
+      let countriesSelected = document.querySelector("#countries");
+      console.log(countriesSelected);
+      countriesSelected.addEventListener("change", showCountry);
+    </script>
+  </body>
+</html>
