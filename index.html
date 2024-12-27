@@ -5,11 +5,33 @@
     <title>Test</title>
   </head>
   <body>
-    <label>Which country would you love to travel to?</label>
-    <select>
-      <option value="">France</option>
+    <label for="countries">Which country would you love to travel to?</label>
+    <select id="countries">
+      <option value="">Select a country</option>
+      <option value="france">France</option>
       <option value="italy">Italy</option>
       <option value="usa">USA</option>
+      <option value="brazil">Brazil</option>
+      <option value="japan">Japan</option>
     </select>
+    <script>
+      function showCountry(event) {
+        if (event.target.value.length > 0) {
+          if (event.target.value === "france") {
+            alert("Bonjour!");
+          }
+          if (event.target.value === "italy") {
+            alert("Ciao!");
+          }
+          if (event.target.value === "usa") {
+            alert("Hi!");
+          }
+        }
+      }
+
+      let countriesSelected = document.querySelector("#countries");
+      console.log(countriesSelected);
+      countriesSelected.addEventListener("change", showCountry);
+    </script>
   </body>
 </html>
