@@ -3,32 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>set time</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <title>Format Date</title>
   </head>
   <body>
-    <div id="helloBox">
-      <h1>Hello</h1>
-    </div>
-    <div id="date">
-      <h2></h2>
-    </div>
-    <script>
-      function changeHello() {
-        let changeHello = document.querySelector("#helloBox");
-        changeHello.innerHTML = `
-          <div>
-            <h1>Bonjour</h1>
-          </div>`;
-      }
-
-      function displayDate() {
-        let date = document.querySelector("#date");
-        date.innerHTML = new Date();
-      }
-
-      setTimeout(changeHello, 3000);
-      displayDate();
-      setInterval(displayDate, 1000);
-    </script>
+    <div id="today"></div>
+    <div id="tomorrow"></div>
   </body>
+  <script>
+    let today = moment().format("[Today is]: dddd, Do, YYYY");
+    let todayHTML = document.querySelector("#today");
+    todayHTML.innerHTML = today;
+
+    let tomorrowElement = document.querySelector("#tomorrow");
+    let tomorrow = moment().add(1, "day").format("dddd Do, MMMM YYYY");
+    tomorrowElement.innerHTML = `Tomorrow will be ${tomorrow}`;
+  </script>
 </html>
